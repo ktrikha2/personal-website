@@ -8,11 +8,11 @@ interface TagProps {
 }
 
 const variantStyles = {
-  default: 'bg-neutral-800 text-neutral-300 border-neutral-700',
-  primary: 'bg-red-500/10 text-red-400 border-red-500/20',
-  success: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-  warning: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  info: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  default: 'bg-sharp-bg-tertiary text-sharp-black border-sharp-border',
+  primary: 'bg-sharp-primary text-white border-sharp-primary',
+  success: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  warning: 'bg-amber-50 text-amber-700 border-amber-200',
+  info: 'bg-sharp-bg-secondary text-sharp-black border-sharp-border',
 };
 
 const sizeStyles = {
@@ -29,7 +29,7 @@ export function Tag({
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full border font-medium',
+        'inline-flex items-center border font-medium font-secondary',
         variantStyles[variant],
         sizeStyles[size],
         className

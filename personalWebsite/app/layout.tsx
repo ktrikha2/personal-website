@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Space_Grotesk, Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import { siteConfig } from '@/data/site';
 import { Header, Footer, SkipLink } from '@/components/layout';
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-primary',
   display: 'swap',
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-mono',
+  variable: '--font-secondary',
   display: 'swap',
 });
 
@@ -101,7 +101,7 @@ export default function RootLayout({
   `;
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <Script
           id="chunk-recovery"
@@ -110,7 +110,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
+        className={`${spaceGrotesk.variable} ${inter.variable} font-primary antialiased bg-white text-sharp-black`}
       >
         <SkipLink />
         <Header />

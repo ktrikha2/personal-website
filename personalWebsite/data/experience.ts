@@ -9,6 +9,7 @@ export interface Experience {
   highlights: string[];
   techTags: string[];
   logo?: string;
+  projectIds?: string[]; // Links to projects section
 }
 
 export const experienceData: Experience[] = [
@@ -27,6 +28,8 @@ export const experienceData: Experience[] = [
       'Agentic orchestration framework: LangChain + FastAPI + Docker',
     ],
     techTags: ['Python', 'NLP', 'LangChain', 'FastAPI', 'Docker', 'Airflow', 'Power BI'],
+    projectIds: ['transcripts-pipeline', 'nlp-virtual-agent'],
+    logo: '/images/motorola.png',
   },
   {
     id: 'rsm-2024',
@@ -42,6 +45,8 @@ export const experienceData: Experience[] = [
       'Integrated Microsoft Copilot AI into Power Platform apps',
     ],
     techTags: ['Power Apps', 'Power Automate', 'Microsoft Copilot', 'Azure'],
+    projectIds: ['power-apps-clients'],
+    logo: '/images/RSM.png',
   },
   {
     id: 'motorola-2023',
@@ -57,6 +62,8 @@ export const experienceData: Experience[] = [
       'Alarm suppression framework: redundant alarms -20%, processing time -10%',
     ],
     techTags: ['Python', 'Streamlit', 'scikit-learn', 'Machine Learning', 'Data Analysis'],
+    projectIds: ['weather-impact-analysis'],
+    logo: '/images/motorola.png',
   },
   {
     id: 'country-2023',
@@ -72,6 +79,8 @@ export const experienceData: Experience[] = [
       'Migrated legacy app to Azure Web Apps with load balancing + CI/CD',
     ],
     techTags: ['Java', 'Spring Boot', 'Azure', 'CI/CD', 'Robot Framework', 'GitLab'],
+    projectIds: ['qr-code-generator'],
+    logo: '/images/COUNTRY.png',
   },
   {
     id: 'motorola-2022',
@@ -86,5 +95,7 @@ export const experienceData: Experience[] = [
       'Airflow ETL pipeline demonstrating advantages over Oracle ODI',
     ],
     techTags: ['Python', 'Airflow', 'ETL', 'Oracle', 'Cloud'],
+    projectIds: ['etl-pipeline-modernization'],
+    logo: '/images/motorola.png',
   },
 ];

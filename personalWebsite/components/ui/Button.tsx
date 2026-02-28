@@ -24,23 +24,23 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 disabled:opacity-50 disabled:pointer-events-none';
+      'inline-flex items-center justify-center font-medium font-secondary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
     const variants = {
       primary:
-        'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
+        'bg-sharp-black text-white hover:bg-sharp-primary focus-visible:ring-sharp-primary duration-fast',
       secondary:
-        'bg-neutral-800 text-neutral-100 hover:bg-neutral-700 focus-visible:ring-neutral-500',
+        'bg-sharp-border text-sharp-black hover:bg-sharp-text-secondary hover:text-white focus-visible:ring-sharp-text-secondary duration-normal',
       ghost:
-        'text-neutral-300 hover:text-white hover:bg-neutral-800/50 focus-visible:ring-neutral-500',
+        'text-sharp-text-secondary hover:text-sharp-black hover:bg-sharp-bg-tertiary focus-visible:ring-sharp-text-secondary duration-normal',
       outline:
-        'border border-neutral-700 text-neutral-300 hover:border-red-500/50 hover:text-white focus-visible:ring-red-500',
+        'border-2 border-sharp-border text-sharp-black hover:border-sharp-black focus-visible:ring-sharp-black duration-normal',
     };
 
     const sizes = {
-      sm: 'h-8 px-3 text-sm rounded-md gap-1.5',
-      md: 'h-10 px-4 text-sm rounded-lg gap-2',
-      lg: 'h-12 px-6 text-base rounded-lg gap-2',
+      sm: 'h-8 px-3 text-small',
+      md: 'h-10 px-4 text-small',
+      lg: 'h-12 px-6 text-body',
     };
 
     const combinedClassName = cn(baseStyles, variants[variant], sizes[size], className);

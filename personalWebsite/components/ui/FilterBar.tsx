@@ -23,7 +23,7 @@ export function FilterBar({
   return (
     <div
       className={cn(
-        'flex flex-wrap gap-2 p-1 bg-neutral-900/50 rounded-lg border border-neutral-800',
+        'flex flex-wrap gap-2 p-1 bg-sharp-bg-tertiary border border-sharp-border',
         className
       )}
       role="tablist"
@@ -36,11 +36,11 @@ export function FilterBar({
           role="tab"
           aria-selected={activeFilter === option.id}
           className={cn(
-            'px-4 py-2 text-sm font-medium rounded-md transition-all duration-200',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500',
+            'px-4 py-2 text-small font-medium font-secondary transition-colors duration-normal',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-sharp-primary',
             activeFilter === option.id
-              ? 'bg-neutral-800 text-white shadow-sm'
-              : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/50'
+              ? 'bg-sharp-black text-white'
+              : 'text-sharp-text-secondary hover:text-sharp-black hover:bg-sharp-bg-secondary'
           )}
         >
           {option.label}

@@ -6,10 +6,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 px-4 border-t border-neutral-800 bg-neutral-950">
-      <div className="max-w-6xl mx-auto">
+    <footer className="py-8 px-8 md:px-16 border-t border-sharp-border bg-white">
+      <div className="max-w-full mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-neutral-500 text-sm">
+          <div className="text-sharp-text-secondary text-small font-secondary">
             © {currentYear} {siteConfig.name}. All rights reserved.
           </div>
 
@@ -18,7 +18,7 @@ export function Footer() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-500 hover:text-white transition-colors"
+              className="text-sharp-text-secondary hover:text-sharp-primary transition-colors duration-normal"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ export function Footer() {
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-500 hover:text-white transition-colors"
+              className="text-sharp-text-secondary hover:text-sharp-primary transition-colors duration-normal"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@ export function Footer() {
             </a>
             <a
               href={`mailto:${siteConfig.links.email}`}
-              className="text-neutral-500 hover:text-white transition-colors"
+              className="text-sharp-text-secondary hover:text-sharp-primary transition-colors duration-normal"
               aria-label="Email"
             >
               <svg
@@ -61,7 +61,7 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="text-neutral-600 text-xs">
+          <div className="text-sharp-text-muted text-xs font-secondary">
             Built with Next.js + Tailwind CSS
           </div>
         </div>

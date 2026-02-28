@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Project, projectCategories } from '@/data/projects';
 import { Tag } from './Tag';
@@ -8,42 +7,44 @@ import { Card } from './Card';
 
 interface ProjectCardProps {
   project: Project;
+  isExpanded?: boolean;
+  onToggle?: () => void;
   className?: string;
 }
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
+export function ProjectCard({ project, isExpanded = false, onToggle, className }: ProjectCardProps) {
   const category = projectCategories[project.category];
 
   return (
-    <Link href={`/projects/${project.slug}`}>
+    <div
+      id={`project-${project.id}`}
+      className={cn('scroll-mt-24', className)}
+    >
+      <div onClick={onToggle} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onToggle?.()}>
       <Card
         hover
-        className={cn(
-          'h-full group transition-all duration-300 hover:border-red-500/30 hover:shadow-lg hover:shadow-red-500/10',
-          className
-        )}
+        className="h-full group cursor-pointer"
       >
         {/* Category badge */}
         <div className="flex items-center justify-between mb-4">
           <span
             className={cn(
-              'px-2.5 py-1 text-xs font-medium rounded-full text-white',
+              'px-3 py-1 text-micro font-semibold uppercase tracking-[0.1em] text-white',
               category.color
             )}
           >
             {category.label}
           </span>
           {project.featured && (
-            <span className="text-xs text-amber-400 font-medium">Featured</span>
+            <span className="text-xs text-sharp-primary font-medium font-secondary">Featured</span>
           )}
         </div>
 
         {/* Title and tagline */}
-        <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors">
-
+        <h3 className="text-xl font-bold font-primary text-sharp-black group-hover:text-sharp-primary transition-colors duration-normal">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm text-neutral-400 line-clamp-2">
+        <p className="mt-2 text-small text-sharp-text-secondary font-secondary line-clamp-2">
           {project.tagline}
         </p>
 
@@ -61,13 +62,87 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           )}
         </div>
 
-        {/* Links indicator */}
-        <div className="mt-4 pt-4 border-t border-neutral-800 flex items-center text-sm text-neutral-500">
-          <span className="group-hover:text-neutral-300 transition-colors">
-            View details →
+        {/* Toggle indicator */}
+        <div className="mt-4 pt-4 border-t border-sharp-border flex items-center justify-between text-small text-sharp-text-secondary font-secondary">
+          <span className="group-hover:text-sharp-black transition-colors duration-normal">
+            {isExpanded ? 'Hide details' : 'View details'}
+          </span>
+          <span className={cn(
+            'transition-transform duration-normal',
+            isExpanded && 'rotate-180'
+          )}>
+            ▼
           </span>
         </div>
+
+        {/* Expandable details */}
+        {isExpanded && (
+          <div className="mt-6 pt-6 border-t border-sharp-border space-y-6" onClick={(e) => e.stopPropagation()}>
+            <p className="text-body text-sharp-text-secondary font-secondary leading-relaxed">
+              {project.description}
+            </p>
+
+            <div className="grid gap-4">
+              <div>
+                <h4 className="text-small font-semibold font-primary text-sharp-black uppercase tracking-wide mb-2">Problem</h4>
+                <p className="text-small text-sharp-text-secondary font-secondary">{project.problem}</p>
+              </div>
+              <div>
+                <h4 className="text-small font-semibold font-primary text-sharp-black uppercase tracking-wide mb-2">Approach</h4>
+                <p className="text-small text-sharp-text-secondary font-secondary">{project.approach}</p>
+              </div>
+              <div>
+                <h4 className="text-small font-semibold font-primary text-sharp-black uppercase tracking-wide mb-2">Results</h4>
+                <p className="text-small text-sharp-text-secondary font-secondary">{project.results}</p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <Tag key={tech} size="sm">
+                  {tech}
+                </Tag>
+              ))}
+            </div>
+
+            {(project.links.github || project.links.demo || project.links.paper) && (
+              <div className="flex flex-wrap gap-3 pt-2">
+                {project.links.github && !project.links.github.startsWith('TODO') && (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-small font-medium text-sharp-primary hover:text-sharp-primary-hover underline underline-offset-4"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+                {project.links.demo && !project.links.demo.startsWith('TODO') && (
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-small font-medium text-sharp-primary hover:text-sharp-primary-hover underline underline-offset-4"
+                  >
+                    Demo ↗
+                  </a>
+                )}
+                {project.links.paper && !project.links.paper.startsWith('TODO') && (
+                  <a
+                    href={project.links.paper}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-small font-medium text-sharp-primary hover:text-sharp-primary-hover underline underline-offset-4"
+                  >
+                    Paper ↗
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </Card>
-    </Link>
+      </div>
+    </div>
   );
 }

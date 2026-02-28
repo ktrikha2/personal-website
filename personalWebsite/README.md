@@ -1,15 +1,13 @@
 # Keshav Trikha - Personal Portfolio Website
 
-A visually unique personal portfolio featuring a 3D "F1 Race Control Desk" hero with scroll-driven portal transition, built with Next.js 14+, Three.js (R3F), GSAP, and Tailwind CSS.
+A modern, high-contrast personal portfolio featuring the "Minimal Sharp" design system with bold typography, sharp edges, and striking red accents, built with Next.js 14+ and Tailwind CSS.
 
 ## Tech Stack
 
 - **Framework:** Next.js 14+ (App Router) with TypeScript
-- **Styling:** Tailwind CSS v4
-- **3D:** Three.js via react-three-fiber (R3F) + @react-three/drei
-- **Animation:** GSAP + ScrollTrigger
-- **Smooth Scroll:** Lenis
-- **Dev Tools:** Leva (dev-only scene parameter tuning)
+- **Styling:** Tailwind CSS with custom design tokens
+- **Fonts:** Space Grotesk (primary), Inter (secondary) via next/font/google
+- **Icons & Utilities:** clsx, tailwind-merge
 
 ## Getting Started
 
@@ -39,130 +37,123 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ```
 ├── app/
-│   ├── layout.tsx              # Root layout with metadata + providers
-│   ├── page.tsx                # Homepage with 3D hero + sections
-│   ├── globals.css             # Tailwind + custom styles
+│   ├── layout.tsx              # Root layout with fonts and metadata
+│   ├── page.tsx                # Homepage with all sections
+│   ├── globals.css             # Tailwind + custom Minimal Sharp variables
 │   ├── projects/               # Projects listing and detail pages
-│   └── resume/                 # Resume PDF embed page
+│   └── resume/                 # Resume page
 ├── components/
-│   ├── Hero3D/                 # 3D scene components
-│   │   ├── index.tsx           # Main R3F Canvas wrapper
-│   │   ├── Scene.tsx           # Scene composition
-│   │   ├── DeskSetup.tsx       # F1 desk with monitor, keyboard, etc.
-│   │   ├── MonitorScreen.tsx   # Telemetry UI on monitor
-│   │   ├── AmbientEffects.tsx  # Lighting, particles, fog
-│   │   ├── CameraRig.tsx       # GSAP scroll-driven camera
-│   │   ├── PortalOverlay.tsx   # Transition overlay
-│   │   ├── SkipIntroButton.tsx # Skip 3D intro
-│   │   └── HeroFallback.tsx    # Mobile/reduced-motion fallback
-│   ├── Timeline/               # Career timeline scrubber
-│   ├── sections/               # Page sections (About, Experience, etc.)
+│   ├── Hero/                   # Hero section with name and intro
+│   ├── Experience/             # Experience cards with timeline
+│   ├── Projects/               # Filterable projects grid
+│   ├── Coursework/             # Academic courses by category
+│   ├── Skills/                 # Technical skills panels
+│   ├── Hobbies/                # Hobbies and interests
+│   ├── Contact/                # Contact section with links
+│   ├── sections/               # Section wrappers (About, etc.)
 │   ├── ui/                     # Reusable UI components
-│   ├── layout/                 # Header, Footer, SkipLink
-│   └── providers/              # SmoothScrollProvider
-├── data/                       # All content data (experience, projects, etc.)
-├── hooks/                      # Custom React hooks
-├── lib/                        # Utilities (gsap, utils)
+│   │   ├── Button.tsx          # Sharp button component
+│   │   ├── Card.tsx            # Sharp card component
+│   │   ├── Tag.tsx             # Tag component
+│   │   ├── FilterBar.tsx       # Category filter
+│   │   └── ProjectCard.tsx     # Project card
+│   └── layout/                 # Header, Footer, SkipLink
+├── data/                       # All content data
+│   ├── site.ts                 # Site metadata and links
+│   ├── experience.ts           # Work experience
+│   ├── education.ts            # Education details
+│   ├── projects.ts             # Portfolio projects
+│   ├── coursework.ts           # Courses and academic projects
+│   ├── skills.ts               # Technical skills
+│   └── hobbies.ts              # Hobbies and interests
+├── lib/                        # Utilities (utils.ts)
 └── public/                     # Static assets
 ```
 
-## Features
+## Design Features
 
-### 3D Hero Experience
-- F1 Race Control Desk scene with ultrawide monitor
-- Scroll-driven camera animation pushing into the monitor
-- Portal transition crossfade into main content
-- Skip intro button for accessibility
-- Mobile/reduced-motion fallback
-
-### Career Timeline ("Career Laps")
-- Interactive timeline scrubber
-- Keyboard accessible (arrow keys)
-- Data-driven from single TypeScript file
+### Minimal Sharp Design System
+- **High Contrast**: Pure white (#FFFFFF) and deep black (#0A0A0A) backgrounds
+- **Sharp Edges**: Zero border radius throughout (or minimal 2-4px)
+- **Bold Typography**: Space Grotesk for headings (96px display), Inter for body
+- **Red Accent**: Vibrant #FF4D4D used strategically for CTAs and highlights
+- **Clean Spacing**: Large padding (160px sections, 64px horizontal)
+- **Micro-interactions**: Instant transitions, subtle card lifts
 
 ### Content Sections
-- About (education, background)
-- Experience (timeline + detailed entries)
-- Projects (filterable grid with detail pages)
-- Coursework (grouped by category)
-- Skills (grouped tags)
-- Hobbies (F1 theme inspiration noted)
-- Contact (social links, resume download)
+- **Hero**: Large typography with name, title, and description
+- **Experience**: Black background with white cards in 2-column grid
+- **Projects**: Filterable grid with category tags
+- **Coursework**: Academic courses grouped by theme
+- **Skills**: Technical skills organized by domain
+- **Hobbies**: Personal interests showcase
+- **Contact**: Social links and email
 
-## Performance Optimizations
+## Performance Features
 
-- **Dynamic Import:** Hero3D loaded only on client-side
-- **R3F Optimizations:**
-  - `frameloop="demand"` - renders only when needed
-  - `dpr={[1, 1.5]}` - capped pixel ratio
-  - Suspense boundaries for async loading
-- **Code Splitting:** 3D code isolated to homepage
-- **Lenis + GSAP Integration:** Smooth scroll synced with animations
+- **Next.js App Router:** Fast routing and server components
+- **Font Optimization:** next/font/google for optimal font loading
+- **Tailwind CSS:** Minimal CSS bundle with purging
+- **Static Generation:** Pages built at build time for fast delivery
+- **Responsive Design:** Mobile-first approach with breakpoints
 
 ## Accessibility
 
-- Skip link to bypass 3D hero
-- `prefers-reduced-motion` respected (shows fallback)
-- Keyboard navigation for timeline
+- Skip link to main content
+- `prefers-reduced-motion` support for animations
+- Keyboard navigation throughout
 - Focus states on all interactive elements
 - Semantic HTML structure
 - ARIA labels where appropriate
+- High contrast color ratios (WCAG AAA compliant)
 
 ## Customization
 
 ### Update Content
 All content is in the `data/` folder:
-- `experience.ts` - Work experience
+- `experience.ts` - Work experience entries
 - `education.ts` - Education details
-- `coursework.ts` - Courses and projects
-- `projects.ts` - Portfolio projects
-- `skills.ts` - Technical skills
-- `timeline.ts` - Career timeline entries
-- `hobbies.ts` - Hobbies/interests
-- `site.ts` - Site metadata and links
+- `coursework.ts` - Academic courses and projects
+- `projects.ts` - Portfolio projects with categories
+- `skills.ts` - Technical skills by domain
+- `hobbies.ts` - Hobbies and interests
+- `site.ts` - Site metadata, links, and configuration
 
-### Update Theme
-- Colors defined in `app/globals.css` under `@theme inline`
-- Tailwind classes throughout components
-- F1-inspired accent colors (red, green, blue)
+### Update Design System
+- **Colors**: Defined in `app/globals.css` CSS variables and `tailwind.config.ts`
+- **Typography**: Font sizes and weights in `tailwind.config.ts`
+- **Spacing**: Custom spacing scale in `tailwind.config.ts`
+- **Components**: Reusable UI components in `components/ui/`
 
-### Upgrade 3D Scene
-The current scene uses primitives. To upgrade:
-1. Add GLTF models to `public/models/`
-2. Use `useGLTF` from drei in `DeskSetup.tsx`
-3. Add textures to `public/textures/`
+### Minimal Sharp Theme Variables
+```css
+--primary: #FF4D4D
+--secondary: #0A0A0A
+--bg-primary: #FFFFFF
+--bg-dark: #0A0A0A
+--text-primary: #0A0A0A
+--text-secondary: #666666
+```
 
 ## TODO Items
 
-Search for "TODO" in the codebase for placeholder content that needs updating:
-- Update email, LinkedIn, GitHub links in `data/site.ts`
+Search for "TODO" comments in the codebase for placeholder content:
+- Update email, LinkedIn, GitHub URLs in `data/site.ts`
 - Add actual resume PDF to `public/resume.pdf`
-- Add project details (problem, approach, results) in `data/projects.ts`
-- Add coursework project details in `data/coursework.ts`
+- Add detailed project descriptions in `data/projects.ts`
 - Create OG image at `public/og-image.png`
+- Add project detail pages content
 
-## Development Checklist
+## Recent Updates
 
-### MVP (Day 1) ✓
-- [x] Next.js project setup
-- [x] Basic R3F Canvas with desk scene
-- [x] GSAP ScrollTrigger + camera animation
-- [x] Lenis smooth scroll
-- [x] Skip intro + reduced motion fallback
-- [x] All data files populated
-- [x] Section components
-- [x] Timeline scrubber
-- [x] Mobile fallback
-
-### Polish (Week 1)
-- [ ] Add detailed textures to desk scene
-- [ ] LED strip animations refined
-- [ ] Portal crossfade effects polished
-- [ ] Timeline synced with 3D telemetry
-- [ ] Contact form (client-side)
-- [ ] OG image created
-- [ ] Lighthouse audit
-- [ ] GLTF model upgrade (optional)
+### Minimal Sharp Redesign ✓
+- [x] Implemented Minimal Sharp design system
+- [x] Updated typography (Space Grotesk + Inter)
+- [x] Redesigned all sections with sharp aesthetic
+- [x] Black/white high-contrast color scheme
+- [x] Red accent color throughout (#FF4D4D)
+- [x] Removed 3D hero and F1 theme
+- [x] Cleaned up unused components and dependencies
 
 ## License
 

@@ -4,7 +4,7 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
-  padding?: 'none' | 'sm' | 'md' | 'lg';
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export function Card({
@@ -18,14 +18,15 @@ export function Card({
     sm: 'p-4',
     md: 'p-6',
     lg: 'p-8',
+    xl: 'p-10',
   };
 
   return (
     <div
       className={cn(
-        'bg-neutral-900/50 border border-neutral-800 rounded-xl backdrop-blur-sm',
+        'bg-white border border-sharp-border',
         hover &&
-          'transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/80 hover:shadow-lg hover:shadow-neutral-950/50',
+          'transition-transform duration-normal hover:-translate-y-1',
         paddingStyles[padding],
         className
       )}
@@ -52,7 +53,7 @@ interface CardTitleProps {
 
 export function CardTitle({ children, className, as: Tag = 'h3' }: CardTitleProps) {
   return (
-    <Tag className={cn('text-lg font-semibold text-white', className)}>
+    <Tag className={cn('text-lg font-semibold font-primary text-sharp-black', className)}>
       {children}
     </Tag>
   );
@@ -65,7 +66,7 @@ interface CardDescriptionProps {
 
 export function CardDescription({ children, className }: CardDescriptionProps) {
   return (
-    <p className={cn('text-sm text-neutral-400 mt-1', className)}>{children}</p>
+    <p className={cn('text-sm font-secondary text-sharp-text-secondary mt-1', className)}>{children}</p>
   );
 }
 
@@ -85,7 +86,7 @@ interface CardFooterProps {
 
 export function CardFooter({ children, className }: CardFooterProps) {
   return (
-    <div className={cn('mt-4 pt-4 border-t border-neutral-800', className)}>
+    <div className={cn('mt-4 pt-4 border-t border-sharp-border', className)}>
       {children}
     </div>
   );

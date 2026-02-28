@@ -4,15 +4,15 @@ import { hobbiesData } from '@/data/hobbies';
 
 export function Hobbies() {
   return (
-    <section id="hobbies" className="py-20 px-4 md:px-8 bg-neutral-950">
+    <section id="hobbies" className="py-section px-8 md:px-16 bg-white">
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            BEYOND <span className="text-red-500">THE TRACK</span>
+        <div className="mb-12">
+          <h2 className="text-h2 font-bold font-primary mb-6 text-sharp-black">
+            Hobbies & Interests
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
-            What drives me outside of work.
+          <p className="text-lg text-sharp-text-secondary font-secondary max-w-2xl">
+            What I enjoy outside of work.
           </p>
         </div>
 
@@ -21,11 +21,11 @@ export function Hobbies() {
           {hobbiesData.map((hobby) => (
             <div
               key={hobby.id}
-              className="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6 text-center hover:border-neutral-700 transition-colors"
+              className="bg-white border border-sharp-border p-6 text-center hover:-translate-y-1 transition-transform duration-normal"
             >
               <div className="text-4xl mb-4">{hobby.icon}</div>
-              <h3 className="text-lg font-semibold text-white mb-2">{hobby.name}</h3>
-              <p className="text-sm text-neutral-400">{hobby.description}</p>
+              <h3 className="text-lg font-bold font-primary text-sharp-black mb-2">{hobby.name}</h3>
+              <p className="text-small text-sharp-text-secondary font-secondary">{hobby.description}</p>
             </div>
           ))}
         </div>
