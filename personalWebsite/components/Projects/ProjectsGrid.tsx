@@ -5,23 +5,18 @@ import { projectsData } from '@/data/projects';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import { FilterBar } from '@/components/ui/FilterBar';
 
-const allCategories = [
-  { id: 'all', label: 'All' },
-  { id: 'side', label: 'Side Projects' },
-  { id: 'coursework', label: 'Coursework' },
-  { id: 'research', label: 'ML / NLP' },
-  { id: 'cloud', label: 'Cloud / Data' },
-  { id: 'systems', label: 'Systems' },
+const projectTabs = [
+  { id: 'experience', label: 'Experience Projects' },
+  { id: 'side', label: 'Side Projects / Coursework' },
 ];
 
 export function ProjectsGrid() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeTab, setActiveTab] = useState<'experience' | 'side'>('experience');
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
 
   const filteredProjects = useMemo(() => {
-    if (activeFilter === 'all') return projectsData;
-    return projectsData.filter((project) => project.category === activeFilter);
-  }, [activeFilter]);
+    return projectsData.filter((project) => project.source === activeTab);
+  }, [activeTab]);
 
   // Handle hash-based expansion (e.g. from Experience section links)
   useEffect(() => {
@@ -31,7 +26,8 @@ export function ProjectsGrid() {
         const projectId = hash.slice(9); // Remove '#project-'
         if (projectsData.some((p) => p.id === projectId)) {
           setExpandedProjectId(projectId);
-          setActiveFilter('all'); // Show all so the project is visible
+          const project = projectsData.find((p) => p.id === projectId);
+          if (project) setActiveTab(project.source);
           // Scroll is handled by scroll-mt and the hash
         }
       }
@@ -58,12 +54,12 @@ export function ProjectsGrid() {
           </p>
         </div>
 
-        {/* Filter bar */}
+        {/* Tabs */}
         <div className="mb-12">
           <FilterBar
-            options={allCategories}
-            activeFilter={activeFilter}
-            onFilterChange={setActiveFilter}
+            options={projectTabs}
+            activeFilter={activeTab}
+            onFilterChange={(id) => setActiveTab(id as 'experience' | 'side')}
           />
         </div>
 
@@ -83,7 +79,7 @@ export function ProjectsGrid() {
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-12 text-sharp-text-muted font-secondary">
-            No projects found in this category.
+            No projects in this section yet.
           </div>
         )}
       </div>

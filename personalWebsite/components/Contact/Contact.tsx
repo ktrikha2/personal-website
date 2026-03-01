@@ -9,7 +9,7 @@ export function Contact() {
       <div className="max-w-2xl mx-auto">
         {/* Section header */}
         <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
-          04
+          06
         </p>
         <h2 className="text-h1 font-bold font-primary mb-6 text-sharp-black">
           Get in Touch

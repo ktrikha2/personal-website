@@ -9,7 +9,7 @@ export function SkillsTelemetry() {
         {/* Section header */}
         <div className="mb-12">
           <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
-            03
+            04
           </p>
           <h2 className="text-h1 font-bold font-primary mb-6 text-sharp-black">
             Skills

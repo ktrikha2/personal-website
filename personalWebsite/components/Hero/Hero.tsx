@@ -19,7 +19,7 @@ export function Hero() {
 
           {/* Name */}
           <h1 className="text-5xl md:text-7xl lg:text-display font-bold font-primary text-sharp-black mb-2">
-            Keshav.
+            Keshav Trikha.
           </h1>
 
           {/* Title line with red accent */}
@@ -29,11 +29,6 @@ export function Hero() {
               AI/ML Engineer & Builder
             </p>
           </div>
-
-          {/* Description */}
-          <p className="text-lg leading-[1.8] text-sharp-text-secondary max-w-[680px] mb-12 font-secondary">
-            {siteConfig.description}
-          </p>
 
           {/* Social links */}
           <div className="flex flex-wrap items-center gap-8">
@@ -63,13 +58,13 @@ export function Hero() {
         </div>
 
         {/* Headshot */}
-        <div className="flex-shrink-0 mt-12 lg:mt-0 border-2 border-sharp-black p-1">
+        <div className="flex-shrink-0 mt-12 lg:mt-0 border-2 border-sharp-primary">
           <Image
-            src="/images/headshot.png"
+            src="/images/grad_headshot.jpg"
             alt="Keshav Trikha"
-            width={320}
-            height={400}
-            className="object-cover"
+            width={340}
+            height={510}
+            className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
             priority
           />
         </div>

@@ -48,7 +48,7 @@ const config: Config = {
         '2xl': '64px',
         '3xl': '80px',
         '4xl': '120px',
-        'section': '160px',
+        'section': '96px',
       },
       borderRadius: {
         none: '0px',

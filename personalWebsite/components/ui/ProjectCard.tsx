@@ -35,16 +35,23 @@ export function ProjectCard({ project, isExpanded = false, onToggle, className }
           >
             {category.label}
           </span>
-          {project.featured && (
-            <span className="text-xs text-sharp-primary font-medium font-secondary">Featured</span>
-          )}
+          <div className="flex items-center gap-2">
+            {project.status === 'wip' && (
+              <span className="text-xs font-semibold font-secondary px-2 py-1 rounded-sm border border-sharp-primary text-sharp-primary bg-sharp-primary/5 uppercase tracking-[0.08em]">
+                Work in Progress
+              </span>
+            )}
+            {project.featured && (
+              <span className="text-xs text-sharp-primary font-medium font-secondary">Featured</span>
+            )}
+          </div>
         </div>
 
         {/* Title and tagline */}
         <h3 className="text-xl font-bold font-primary text-sharp-black group-hover:text-sharp-primary transition-colors duration-normal">
           {project.title}
         </h3>
-        <p className="mt-2 text-small text-sharp-text-secondary font-secondary line-clamp-2">
+        <p className="mt-2 text-small text-sharp-text-secondary font-secondary line-clamp-2 break-words">
           {project.tagline}
         </p>
 
@@ -91,10 +98,12 @@ export function ProjectCard({ project, isExpanded = false, onToggle, className }
                 <h4 className="text-small font-semibold font-primary text-sharp-black uppercase tracking-wide mb-2">Approach</h4>
                 <p className="text-small text-sharp-text-secondary font-secondary">{project.approach}</p>
               </div>
-              <div>
-                <h4 className="text-small font-semibold font-primary text-sharp-black uppercase tracking-wide mb-2">Results</h4>
-                <p className="text-small text-sharp-text-secondary font-secondary">{project.results}</p>
-              </div>
+              {project.results && (
+                <div>
+                  <h4 className="text-small font-semibold font-primary text-sharp-black uppercase tracking-wide mb-2">Results</h4>
+                  <p className="text-small text-sharp-text-secondary font-secondary">{project.results}</p>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-wrap gap-2">

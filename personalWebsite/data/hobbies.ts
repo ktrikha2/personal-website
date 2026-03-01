@@ -3,7 +3,7 @@ export interface Hobby {
   name: string;
   icon: string;
   description: string;
-  highlight?: string;
+  image?: string; // optional: path to photo (e.g. /images/hobbies/f1.jpg)
 }
 
 export const hobbiesData: Hobby[] = [
@@ -12,28 +12,30 @@ export const hobbiesData: Hobby[] = [
     name: 'Formula 1',
     icon: '🏎️',
     description:
-      'Passionate F1 fan following the technical and strategic side of the sport. The theme of this website is inspired by F1 race control rooms.',
-    highlight: 'This site\'s theme is inspired by F1 race control!',
+      'I follow F1 pretty closely as a fan of McLaren. Love the chaos and strategy, as well as all the locations worldwide.',
+    image: '/images/hobbies/f1.jpg',
   },
   {
     id: 'tennis',
     name: 'Tennis',
     icon: '🎾',
     description:
-      'Enjoy playing tennis recreationally. Great way to stay active and competitive.',
+      'Played competitive tennis in high school and club in college. Still try to get on the court whenever I can.',
+    image: '/images/hobbies/tennis.jpg',
   },
   {
     id: 'golf',
     name: 'Golf',
     icon: '⛳',
-    description:
-      'Working on improving my golf game. Appreciate the mental and technical aspects of the sport.',
+    description: 'Love getting out on the course whenever possible. The views are always stunning.',
+    image: '/images/hobbies/golf.jpg',
   },
   {
     id: 'music',
-    name: 'Music & DJing',
+    name: 'Music',
     icon: '🎧',
     description:
-      'Love exploring electronic music and DJing. Enjoy the creative process of mixing and discovering new tracks.',
+      'Love discovering new tracks from all genres. I even took a DJing course! Let me know if you need a DJ!',
+    image: '/images/hobbies/music.jpg',
   },
 ];

@@ -9,12 +9,13 @@ export function About() {
         <h2 className="text-h2 font-bold font-primary mb-8 text-sharp-black">
           About Me
         </h2>
-        <p className="text-lg text-sharp-text-secondary leading-relaxed mb-6 font-secondary">
-          {siteConfig.description}
-        </p>
-        <p className="text-sharp-text-muted font-secondary">
-          {siteConfig.tagline}
-        </p>
+        <div className="space-y-6">
+          {siteConfig.about.map((paragraph, i) => (
+            <p key={i} className="text-lg text-sharp-text-secondary leading-relaxed font-secondary">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   );
