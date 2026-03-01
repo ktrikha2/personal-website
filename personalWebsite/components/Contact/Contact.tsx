@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/Button';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-section px-8 md:px-16 bg-white">
+    <section id="contact" className="py-12 md:py-section px-8 md:px-16 bg-white">
       <div className="max-w-2xl mx-auto">
         {/* Section header */}
         <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
           06
         </p>
-        <h2 className="text-h1 font-bold font-primary mb-6 text-sharp-black">
+        <h2 className="text-3xl md:text-h2 lg:text-h1 font-bold font-primary mb-6 text-sharp-black">
           Get in Touch
         </h2>
         <p className="text-lg text-sharp-text-secondary font-secondary mb-12">

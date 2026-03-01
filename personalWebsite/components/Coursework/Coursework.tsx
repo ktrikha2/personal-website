@@ -11,13 +11,13 @@ export function Coursework() {
   };
 
   return (
-    <section id="coursework" className="py-section px-8 md:px-16 bg-sharp-bg-secondary">
+    <section id="coursework" className="py-12 md:py-section px-8 md:px-16 bg-sharp-bg-secondary">
       <div className="max-w-[1400px] mx-auto">
         <div className="mb-12">
           <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
             03
           </p>
-          <h2 className="text-h1 font-bold font-primary mb-6 text-sharp-black">
+          <h2 className="text-3xl md:text-h2 lg:text-h1 font-bold font-primary mb-6 text-sharp-black">
             Coursework
           </h2>
           <p className="text-lg text-sharp-text-secondary font-secondary max-w-2xl">

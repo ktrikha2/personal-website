@@ -8,7 +8,7 @@ export function ExperienceTrack() {
   return (
     <section
       id="experience"
-      className="py-section px-8 md:px-16 bg-sharp-black"
+      className="py-12 md:py-section px-8 md:px-16 bg-sharp-black"
       aria-label="Experience"
     >
       <div className="max-w-[1400px] mx-auto">
@@ -19,7 +19,7 @@ export function ExperienceTrack() {
             <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
               01
             </p>
-            <h2 className="text-h1 font-bold font-primary text-white">
+            <h2 className="text-3xl md:text-h2 lg:text-h1 font-bold font-primary text-white">
               Experience
             </h2>
           </div>
@@ -37,7 +37,7 @@ export function ExperienceTrack() {
           {experienceData.map((experience) => (
             <div
               key={experience.id}
-              className="p-10 bg-white hover:-translate-y-1 transition-transform duration-normal relative"
+              className="p-6 md:p-10 bg-white hover:-translate-y-1 transition-transform duration-normal relative"
             >
               {/* Company logo - top right */}
               {experience.logo && (

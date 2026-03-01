@@ -6,7 +6,7 @@ import { siteConfig } from '@/data/site';
 export function Hero() {
   return (
     <section
-      className="relative bg-white pt-[200px] pb-section px-8 md:px-16"
+      className="relative bg-white pt-28 md:pt-40 lg:pt-[200px] pb-12 md:pb-section px-8 md:px-16"
       id="hero"
     >
       <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-16">
@@ -58,13 +58,13 @@ export function Hero() {
         </div>
 
         {/* Headshot */}
-        <div className="flex-shrink-0 mt-12 lg:mt-0 border-2 border-sharp-primary">
+        <div className="flex-shrink-0 mt-12 lg:mt-0 border-2 border-sharp-primary w-full max-w-[340px] mx-auto lg:mx-0">
           <Image
             src="/images/grad_headshot.jpg"
             alt="Keshav Trikha"
             width={340}
             height={510}
-            className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+            className="w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
             priority
           />
         </div>

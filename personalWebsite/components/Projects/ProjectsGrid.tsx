@@ -39,14 +39,14 @@ export function ProjectsGrid() {
   }, []);
 
   return (
-    <section id="projects" className="py-section px-8 md:px-16 bg-white">
+    <section id="projects" className="py-12 md:py-section px-8 md:px-16 bg-white">
       <div className="max-w-[1400px] mx-auto">
         {/* Section header */}
         <div className="mb-12">
           <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
             02
           </p>
-          <h2 className="text-h1 font-bold font-primary mb-6 text-sharp-black">
+          <h2 className="text-3xl md:text-h2 lg:text-h1 font-bold font-primary mb-6 text-sharp-black">
             Projects
           </h2>
           <p className="text-lg text-sharp-text-secondary font-secondary max-w-2xl">

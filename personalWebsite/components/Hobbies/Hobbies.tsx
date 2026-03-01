@@ -7,14 +7,14 @@ export function Hobbies() {
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
   return (
-    <section id="hobbies" className="py-section px-8 md:px-16 bg-white">
+    <section id="hobbies" className="py-12 md:py-section px-8 md:px-16 bg-white">
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="mb-12">
           <p className="text-small font-medium font-secondary text-sharp-primary uppercase tracking-[0.15em] mb-6">
             05
           </p>
-          <h2 className="text-h2 font-bold font-primary mb-6 text-sharp-black">
+          <h2 className="text-2xl md:text-h2 font-bold font-primary mb-6 text-sharp-black">
             Hobbies & Interests
           </h2>
           <p className="text-lg text-sharp-text-secondary font-secondary max-w-2xl">
